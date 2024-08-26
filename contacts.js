@@ -99,7 +99,7 @@ app.post("/contacts/new",
   }, 
   (req, res, next) => {
     let phoneNumber = res.locals.phoneNumber;
-    if (firstName.length === 0) {
+    if (phoneNumber.length === 0) {
       res.locals.errorMessages.push("Phone number is required.");
     } else if (!/^\d\d\d-\d\d\d-\d\d\d\d$/.test(phoneNumber))  {
       res.locals.errorMessages.push("Invalid phone number format. Use ###-###-####.");
