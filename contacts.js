@@ -26,7 +26,7 @@ let contactData = [
 ];
 
 const sortContacts = contacts => {
-  return contacts.slice.sort((contactA, contactB) => {
+  return contacts.slice().sort((contactA, contactB) => {
     if (contactA.lastName < contactB.lastName) {
       return -1;
     } else if (contactA.lastName > contactB.lastName) {
@@ -56,6 +56,10 @@ app.get("/contacts", (req, res) => {
     contacts: sortContacts(contactData),
   });
 });
+
+app.get("/contacts/new", (req, res) => {
+  res.render("new-contact");
+})
 
 app.listen(3000, "localhost", () => {
   console.log("Listening to port 3000...");
