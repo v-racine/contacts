@@ -63,12 +63,7 @@ app.get("/contacts/new", (req, res) => {
 });
 
 app.post("/contacts/new", (req, res) => {
-  contactData.push({
-    firstName: req.body.firstName,
-    lastName: req.body.lastName, 
-    phoneNumber: req.body.phoneNumber,
-  });
-
+  contactData.push({...req.body});
   res.redirect("/contacts");
 });
 
